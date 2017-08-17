@@ -1,0 +1,6 @@
+BarrierSensor   KEYWORD1
+barrierSensorOn KEYWORD2
+barrierSensorOff    KEYWORD2
+ldrRead KEYWORD2
+barrierSensorRead   KEYWORD2
+barrierSensorCalibrate  KEYWORD2
