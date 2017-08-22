@@ -10,52 +10,88 @@
 BarrierSensor::BarrierSensor()
 {}
 
-BarrierSensor::BarrierSensor(int laserPin, int ldrPin)
+BarrierSensor::BarrierSensor(int ldrPin, int laserPin)
 {
-    pinMode(laserPin, OUTPUT);
-    this->_laserPin = laserPin;
     this->_ldrPin = ldrPin;
+    pinMode(this->_ldrPin, INPUT);
     this->_ldrValue = 0;
-    this->barrierSensorCalibrate();
+
+    this->_laserPin = laserPin;
+    pinMode(this->_laserPin, OUTPUT);
+    digitalWrite(this->_laserPin, HIGH);  
+    this->_laserState = 1;
+
+    //this->barrierSensorCalibrate();
 }
 
- void BarrierSensor::barrierSensorOn()
- {
-    digitalWrite(this->_laserPin, HIGH);
- }
+/*
+    Returns the cached ldr value
+*/ 
+int BarrierSensor::getLdrValue(){
+	return this->_ldrValue;
+}
 
- void BarrierSensor::barrierSensorOff()
- {
-    digitalWrite(this->_laserPin, LOW);
- }
+void BarrierSensor::setCalibratedValue(int calibratedValue){
+    this->_calibratedValue = calibratedValue;
+}
 
- int BarrierSensor::ldrRead()
- {  
-    this->_ldrValue = analogRead(_ldrPin);
-    return (this->_ldrValue);
- }
+/*
+	Returns the cached ldr calibrated value
+*/
+int BarrierSensor::getCalibratedValue(){
+    return this->_calibratedValue;
+}
 
-bool BarrierSensor::barrierSensorRead()
-{
-    this->_ldrValue = analogRead(this->_ldrPin);
+ /*
+     Read ldr value
+*/
+void BarrierSensor::readLdrValue(){
+	this->_ldrValue = analogRead(this->_ldrPin);
+	//return this->getLdrValue();
+}
 
-    if(this->_ldrValue <= this->_calibratedValue){
-        return false;
+ /*
+	 Change laser state 0N/OFF
+*/
+void BarrierSensor::laserChangeState(){
+    if(_laserState == 1){
+         digitalWrite(_laserPin, LOW); 
+         this->_laserState = 0;
     }else{
-        return true;
+         digitalWrite(_laserPin, HIGH);
+         this->_laserState = 1;
     }
+
+}
+
+ /*
+	Return true if light is blocked
+*/
+bool BarrierSensor::lightBlocked(){
+    if(this->getLdrValue() <= this->getCalibratedValue()){
+        return true;
+    }else{
+        return false;
+    }
+        
 }
 
 void BarrierSensor::barrierSensorCalibrate()
 {
-    int minValue, maxValue;
+    int minValue = 0;
+    int maxValue = 0;
 
-    barrierSensorOff();
-    minValue = analogRead(this->_ldrPin);
+    delay(1000);
+    this->laserChangeState();
     delay(500);
-    barrierSensorOn();
-    maxValue = analogRead(this->_ldrPin);
+    this->readLdrValue();
     delay(500);
+    minValue = this->getLdrValue();
+    this->laserChangeState();
+    delay(500);
+    this->readLdrValue();    
+    delay(500);
+    maxValue = this->getLdrValue();
 
     this->_calibratedValue = (((maxValue - minValue)/2) + minValue);
 

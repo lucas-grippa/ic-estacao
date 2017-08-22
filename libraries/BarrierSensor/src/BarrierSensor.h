@@ -11,17 +11,21 @@
 class BarrierSensor
 {
   public:
-    BarrierSensor(int laserPin, int ldrPin);
-    void barrierSensorOn();
-    void barrierSensorOff();
-    int ldrRead();
-    bool barrierSensorRead();
+    BarrierSensor();
+    BarrierSensor(int, int);
+    int getLdrValue();
+    void setCalibratedValue(int);
+    int getCalibratedValue();
+    void readLdrValue();
+    void laserChangeState();
+    bool lightBlocked();
     void barrierSensorCalibrate();
   private:
     int _laserPin;
     int _ldrPin;
     int _ldrValue;
     int _calibratedValue;
+    int _laserState;
 };
 
 #endif
