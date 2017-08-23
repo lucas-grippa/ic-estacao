@@ -1,0 +1,8 @@
+ColorSensor KEYWORD1
+readRed KEYWORD2
+readGreen   KEYWORD2
+readBlue    KEYWORD2
+readColors  KEYWORD2
+isItRed KEYWORD2
+isItGreen   KEYWORD2
+isItBlue    KEYWORD2

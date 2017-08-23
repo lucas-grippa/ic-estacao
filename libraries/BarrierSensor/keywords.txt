@@ -1,6 +1,8 @@
 BarrierSensor   KEYWORD1
-barrierSensorOn KEYWORD2
-barrierSensorOff    KEYWORD2
-ldrRead KEYWORD2
-barrierSensorRead   KEYWORD2
+getLdrValue KEYWORD2
+setCalibratedValue  KEYWORD2
+getCalibratedValue  KEYWORD2
+readLdrValue    KEYWORD2
+laserChangeState    KEYWORD2
+lightBlocked    KEYWORD2
 barrierSensorCalibrate  KEYWORD2
