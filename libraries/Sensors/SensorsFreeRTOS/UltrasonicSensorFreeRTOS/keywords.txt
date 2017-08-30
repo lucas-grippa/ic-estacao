@@ -1,0 +1,8 @@
+UltrasonicSensor    KEYWORD1
+getDistance KEYWORD2
+getInitialDistance  KEYWORD2
+getSpace    KEYWORD2
+readDistance    KEYWORD2
+ultrasonicSensorCalibrate   KEYWORD2
+getHeight   KEYWORD2
+

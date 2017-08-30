@@ -72,11 +72,11 @@ void ColorSensor::readBlue(){
 
 void ColorSensor::readColors(){
     this->readRed();
-    delay(20);
+    //delay(20);
     this->readGreen();
-    delay(20);
+    //delay(20);
     this->readBlue();
-    delay(20);
+    //delay(20);
 }
 
 bool ColorSensor::isItRed(){

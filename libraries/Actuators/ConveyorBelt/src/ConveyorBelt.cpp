@@ -47,51 +47,49 @@ void ConveyorBelt::setSpeed(int speed){
 }
 
 void ConveyorBelt::motorControlRight(){
-    digitalWrite(this->_m4, HIGH);
-    digitalWrite(this->_m3, HIGH);    
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m4, LOW);    
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m3, HIGH); 
-    digitalWrite(this->_m2, HIGH);   
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m3, LOW);    
-    delay(this->getDelayTime());            
-    digitalWrite(this->_m2, HIGH); 
-    digitalWrite(this->_m1, HIGH);   
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m2, LOW);    
-    delay(this->getDelayTime());            
-    digitalWrite(this->_m1, HIGH);
-    digitalWrite(this->_m4, HIGH);   
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m1, LOW);    
-    delay(this->getDelayTime());            
-
+        digitalWrite(this->_m4, HIGH);
+        digitalWrite(this->_m3, HIGH);    
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m4, LOW);    
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m3, HIGH); 
+        digitalWrite(this->_m2, HIGH);   
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m3, LOW);    
+        delay(this->getDelayTime());            
+        digitalWrite(this->_m2, HIGH); 
+        digitalWrite(this->_m1, HIGH);   
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m2, LOW);    
+        delay(this->getDelayTime());            
+        digitalWrite(this->_m1, HIGH);
+        digitalWrite(this->_m4, HIGH);   
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m1, LOW);    
+        delay(this->getDelayTime());             
 }
 
 void ConveyorBelt::motorControlLeft(){
-    digitalWrite(this->_m1, HIGH);
-    digitalWrite(this->_m2, HIGH);    
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m1, LOW);    
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m2, HIGH); 
-    digitalWrite(this->_m3, HIGH);   
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m2, LOW);    
-    delay(this->getDelayTime());            
-    digitalWrite(this->_m3, HIGH); 
-    digitalWrite(this->_m4, HIGH);   
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m3, LOW);    
-    delay(this->getDelayTime());            
-    digitalWrite(this->_m4, HIGH);
-    digitalWrite(this->_m1, HIGH);   
-    delay(this->getDelayTime());              
-    digitalWrite(this->_m4, LOW);    
-    delay(this->getDelayTime());
-
+        digitalWrite(this->_m1, HIGH);
+        digitalWrite(this->_m2, HIGH);    
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m1, LOW);    
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m2, HIGH); 
+        digitalWrite(this->_m3, HIGH);   
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m2, LOW);    
+        delay(this->getDelayTime());            
+        digitalWrite(this->_m3, HIGH); 
+        digitalWrite(this->_m4, HIGH);   
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m3, LOW);    
+        delay(this->getDelayTime());            
+        digitalWrite(this->_m4, HIGH);
+        digitalWrite(this->_m1, HIGH);   
+        delay(this->getDelayTime());              
+        digitalWrite(this->_m4, LOW);    
+        delay(this->getDelayTime());
 }
 
 void ConveyorBelt::setDirectionToRight(){
@@ -130,7 +128,7 @@ void ConveyorBelt::off(){
 }
 
 void ConveyorBelt::conveyorBeltControl(){
-    if(getOnOffStatus() == 1){
+    if(this->getOnOffStatus() == 1){
         this->on();
     }else{
         this->off();

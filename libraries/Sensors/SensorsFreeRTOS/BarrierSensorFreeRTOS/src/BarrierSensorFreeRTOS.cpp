@@ -1,16 +1,17 @@
 /*
-  BarrierSensor.cpp - Library for automated station barrier sensor.
+  BarrierSensorFreeRTOS.cpp - Library for automated station barrier sensor.
   Created by Lucas Grippa Marques, August 17, 2017.
   Released into the public domain.
 */
 
 #include "Arduino.h"
-#include "BarrierSensor.h"
+#include "BarrierSensorFreeRTOS.h"
+#include "Arduino_FreeRTOS.h"
 
-BarrierSensor::BarrierSensor()
+BarrierSensorFreeRTOS::BarrierSensorFreeRTOS()
 {}
 
-BarrierSensor::BarrierSensor(int ldrPin, int laserPin)
+BarrierSensorFreeRTOS::BarrierSensorFreeRTOS(int ldrPin, int laserPin)
 {
     this->_ldrPin = ldrPin;
     pinMode(this->_ldrPin, INPUT);
@@ -21,31 +22,31 @@ BarrierSensor::BarrierSensor(int ldrPin, int laserPin)
     digitalWrite(this->_laserPin, HIGH);  
     this->_laserState = 1;
 
-    //this->barrierSensorCalibrate();
+    //this->BarrierSensorFreeRTOSCalibrate();
 }
 
 /*
     Returns the cached ldr value
 */ 
-int BarrierSensor::getLdrValue(){
+int BarrierSensorFreeRTOS::getLdrValue(){
 	return this->_ldrValue;
 }
 
-void BarrierSensor::setCalibratedValue(int calibratedValue){
+void BarrierSensorFreeRTOS::setCalibratedValue(int calibratedValue){
     this->_calibratedValue = calibratedValue;
 }
 
 /*
 	Returns the cached ldr calibrated value
 */
-int BarrierSensor::getCalibratedValue(){
+int BarrierSensorFreeRTOS::getCalibratedValue(){
     return this->_calibratedValue;
 }
 
  /*
      Read ldr value
 */
-void BarrierSensor::readLdrValue(){
+void BarrierSensorFreeRTOS::readLdrValue(){
 	this->_ldrValue = analogRead(this->_ldrPin);
 	//return this->getLdrValue();
 }
@@ -53,7 +54,7 @@ void BarrierSensor::readLdrValue(){
  /*
 	 Change laser state 0N/OFF
 */
-void BarrierSensor::laserChangeState(){
+void BarrierSensorFreeRTOS::laserChangeState(){
     if(_laserState == 1){
          digitalWrite(_laserPin, LOW); 
          this->_laserState = 0;
@@ -67,7 +68,7 @@ void BarrierSensor::laserChangeState(){
  /*
 	Return true if light is blocked
 */
-bool BarrierSensor::lightBlocked(){
+bool BarrierSensorFreeRTOS::lightBlocked(){
     if(this->getLdrValue() <= this->getCalibratedValue()){
         return false;
     }else{
@@ -76,21 +77,21 @@ bool BarrierSensor::lightBlocked(){
         
 }
 
-void BarrierSensor::barrierSensorCalibrate()
+void BarrierSensorFreeRTOS::barrierSensorCalibrate()
 {
     int minValue = 0;
     int maxValue = 0;
 
-    delay(1000);
+    vTaskDelay( 1000 / portTICK_PERIOD_MS );
     this->laserChangeState();
-    delay(500);
+    vTaskDelay( 500 / portTICK_PERIOD_MS );
     this->readLdrValue();
-    delay(500);
+    vTaskDelay( 500 / portTICK_PERIOD_MS );
     minValue = this->getLdrValue();
     this->laserChangeState();
-    delay(500);
-    this->readLdrValue();    
-    delay(500);
+    vTaskDelay( 500 / portTICK_PERIOD_MS );
+    this->readLdrValue(); 
+    vTaskDelay( 500 / portTICK_PERIOD_MS );   
     maxValue = this->getLdrValue();
 
     this->_calibratedValue = (((maxValue - minValue)/2) + minValue);

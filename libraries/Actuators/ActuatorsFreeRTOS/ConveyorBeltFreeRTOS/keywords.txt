@@ -1,0 +1,14 @@
+ConveyorBelt    KEYWORD1
+getDirection    KEYWORD2
+getDelayTime    KEYWORD2
+getOnOffStatus  KEYWORD2
+setSpeed    KEYWORD2
+motorControlRight   KEYWORD2
+motorControlLeft    KEYWORD2
+setDirectionToRight KEYWORD2
+setDirectionToLeft  KEYWORD2
+turnOn  KEYWORD2
+turnOff KEYWORD2
+on  KEYWORD2
+off KEYWORD2
+conveyorBeltControl KEYWORD2
