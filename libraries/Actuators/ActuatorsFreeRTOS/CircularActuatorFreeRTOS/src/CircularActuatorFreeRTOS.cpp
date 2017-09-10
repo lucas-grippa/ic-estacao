@@ -41,32 +41,49 @@ int CircularActuatorFreeRTOS::getPosition(){
 }
 
 void CircularActuatorFreeRTOS::setSpeed(int speed){
+    /*
     if(speed >= 5 and speed <= 50){
         this->_delayTime = (55 - speed);
     }
+    */
+    this->_delayTime = speed;
 }
 
 void CircularActuatorFreeRTOS::motorControl(){
+    int xLastWakeTime;
+    int xFrequency = ( this->getDelayTime() / portTICK_PERIOD_MS );
+
+    xLastWakeTime = xTaskGetTickCount ();
+
+
     digitalWrite(this->_m1, HIGH);
-    digitalWrite(this->_m2, HIGH);    
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-    digitalWrite(this->_m1, LOW);    
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
     digitalWrite(this->_m2, HIGH); 
-    digitalWrite(this->_m3, HIGH);   
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-    digitalWrite(this->_m2, LOW);    
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );             
+    //vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+    digitalWrite(this->_m1, LOW);   
+    vTaskDelayUntil( &xLastWakeTime, xFrequency ); 
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+    digitalWrite(this->_m2, HIGH); 
+    digitalWrite(this->_m3, HIGH);
+    vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+    digitalWrite(this->_m2, LOW); 
+    vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );             
     digitalWrite(this->_m3, HIGH); 
-    digitalWrite(this->_m4, HIGH);   
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-    digitalWrite(this->_m3, LOW);    
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );             
+    digitalWrite(this->_m4, HIGH); 
+    vTaskDelayUntil( &xLastWakeTime, xFrequency );  
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+    digitalWrite(this->_m3, LOW);  
+    vTaskDelayUntil( &xLastWakeTime, xFrequency );  
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );             
     digitalWrite(this->_m4, HIGH);
-    digitalWrite(this->_m1, HIGH);   
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-    digitalWrite(this->_m4, LOW);    
-    vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS ); 
+    digitalWrite(this->_m1, HIGH);
+    vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+    digitalWrite(this->_m4, LOW); 
+    vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+    //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS ); 
 
 }
 
@@ -75,6 +92,7 @@ void CircularActuatorFreeRTOS::toPosition1(){
         position1.readSwitchState();
         this->motorControl();
     }
+
     this->_position = 0;
 }
 

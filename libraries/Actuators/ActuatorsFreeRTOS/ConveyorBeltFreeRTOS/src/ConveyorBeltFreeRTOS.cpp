@@ -42,16 +42,19 @@ int ConveyorBeltFreeRTOS::getOnOffStatus(){
 }
 
 void ConveyorBeltFreeRTOS::setSpeed(int speed){
+    /*
     if(speed >= 5 and speed <= 50){
         this->_delayTime = (55 - speed);
     }
+    */
+    this->_delayTime = speed;
 }
 
 void ConveyorBeltFreeRTOS::motorControlRight(){
         int xLastWakeTime;
         int xFrequency = ( this->getDelayTime() / portTICK_PERIOD_MS );
 
-        xLastWakeTime = xTaskGetTickCount ();
+        xLastWakeTime = xTaskGetTickCount();
 
         digitalWrite(this->_m4, HIGH);
         digitalWrite(this->_m3, HIGH);
@@ -84,26 +87,39 @@ void ConveyorBeltFreeRTOS::motorControlRight(){
 }
 
 void ConveyorBeltFreeRTOS::motorControlLeft(){
+        int xLastWakeTime;
+        int xFrequency = ( this->getDelayTime() / portTICK_PERIOD_MS );
+
+        xLastWakeTime = xTaskGetTickCount();
+
         digitalWrite(this->_m1, HIGH);
-        digitalWrite(this->_m2, HIGH);    
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-        digitalWrite(this->_m1, LOW);    
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+        digitalWrite(this->_m2, HIGH);   
+        vTaskDelayUntil( &xLastWakeTime, xFrequency ); 
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+        digitalWrite(this->_m1, LOW);   
+        vTaskDelayUntil( &xLastWakeTime, xFrequency ); 
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
         digitalWrite(this->_m2, HIGH); 
         digitalWrite(this->_m3, HIGH);   
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-        digitalWrite(this->_m2, LOW);    
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );             
+        vTaskDelayUntil( &xLastWakeTime, xFrequency );
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+        digitalWrite(this->_m2, LOW);  
+        vTaskDelayUntil( &xLastWakeTime, xFrequency );  
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );             
         digitalWrite(this->_m3, HIGH); 
-        digitalWrite(this->_m4, HIGH);   
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
-        digitalWrite(this->_m3, LOW);    
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );            
+        digitalWrite(this->_m4, HIGH);  
+        vTaskDelayUntil( &xLastWakeTime, xFrequency ); 
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+        digitalWrite(this->_m3, LOW);  
+        vTaskDelayUntil( &xLastWakeTime, xFrequency );  
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );            
         digitalWrite(this->_m4, HIGH);
-        digitalWrite(this->_m1, HIGH);   
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
+        digitalWrite(this->_m1, HIGH);  
+        vTaskDelayUntil( &xLastWakeTime, xFrequency ); 
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS );               
         digitalWrite(this->_m4, LOW);    
-        vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS ); 
+        vTaskDelayUntil( &xLastWakeTime, xFrequency );
+        //vTaskDelay( (this->getDelayTime()) / portTICK_PERIOD_MS ); 
 }
 
 void ConveyorBeltFreeRTOS::setDirectionToRight(){
