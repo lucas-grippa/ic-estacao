@@ -1,8 +1,7 @@
 import React from 'react'
-import MenuItem from './menuItem'
 
 export default props => (
-    <ul className='sidebar-menu'>
+    <ul className='nav nav-tabs'> 
         {props.children}
-    </ul>
+    </ul> 
 )
