@@ -9,8 +9,23 @@ import ItensHeader from '../common/item/itensHeader'
 import ItemHeader from '../common/item/itemHeader'
 import ItensContent from '../common/item/itensContent'
 import ItemContent from '../common/item/itemContent'
+import { selectItem } from '../common/item/itemActions'
+
+import ConveyorBelt from './devices/conveyorBelt'
+import ActuatorOne from './devices/actuatorOne'
+import ActuatorTwo from './devices/actuatorTwo'
+import ActuatorThree from './devices/actuatorThree'
+import CircularActuator from './devices/circularActuator'
+import DisplayLcd from './devices/displayLcd'
+import BarrierSensor from './devices/barrierSensor'
+import UltrasonicSensor from './devices/ultrasonicSensor'
+import ColorSensor from './devices/colorSensor'
 
 class Dashboard extends Component {
+
+    componentWillMount() {
+        this.props.selectItem('initial-content')
+    }
 
     render() {
         return (
@@ -19,6 +34,7 @@ class Dashboard extends Component {
                     <Row> 
                         <Itens cols='4'>
                             <ItensHeader>
+                                <ItemHeader id='initial-content' label='Station Devices' />
                                 <ItemHeader id='belt' label='Esteira' />
                                 <ItemHeader id='actuator-1' label='Atuador 1' />
                                 <ItemHeader id='actuator-2' label='Atuador 2' />
@@ -30,15 +46,16 @@ class Dashboard extends Component {
                                 <ItemHeader id='color-sensor' label='Sensor De Cor' />
                             </ItensHeader>
                             <ItensContent>
-                                <ItemContent id='belt'><h1>Esteira</h1></ItemContent>
-                                <ItemContent id='actuator-1'><h1>Atuador 1</h1></ItemContent>
-                                <ItemContent id='actuator-2'><h1>Atuador 2</h1></ItemContent>
-                                <ItemContent id='actuator-3'><h1>Atuador 3</h1></ItemContent>
-                                <ItemContent id='circular-actuator'><h1>Atuador Circular</h1></ItemContent>
-                                <ItemContent id='lcd'><h1>LCD</h1></ItemContent>
-                                <ItemContent id='laser'><h1>Laser</h1></ItemContent>
-                                <ItemContent id='ultrasonic-sensor'><h1>Sensor Ultrassonico</h1></ItemContent>
-                                <ItemContent id='color-sensor'><h1>Sensor de Cor</h1></ItemContent>
+                                <ItemContent id='initial-content'><h1>inicial</h1></ItemContent>
+                                <ItemContent id='belt'><ConveyorBelt /></ItemContent>
+                                <ItemContent id='actuator-1'><ActuatorOne /></ItemContent>
+                                <ItemContent id='actuator-2'><ActuatorTwo /></ItemContent>
+                                <ItemContent id='actuator-3'><ActuatorThree /></ItemContent>
+                                <ItemContent id='circular-actuator'><CircularActuator /></ItemContent>
+                                <ItemContent id='lcd'><DisplayLcd /></ItemContent>
+                                <ItemContent id='laser'><BarrierSensor /></ItemContent>
+                                <ItemContent id='ultrasonic-sensor'><UltrasonicSensor /></ItemContent>
+                                <ItemContent id='color-sensor'><ColorSensor /></ItemContent>
                             </ItensContent>
                         </Itens> 
                     </Row> 
@@ -48,4 +65,5 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+const mapDispatchToProps = dispatch => bindActionCreators({selectItem}, dispatch)
+export default connect(null, mapDispatchToProps)(Dashboard)

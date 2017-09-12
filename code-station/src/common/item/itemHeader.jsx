@@ -10,7 +10,7 @@ class ItemHeader extends Component {
         return (
             <If test={selected}>
                 <li className={selected ? 'active' : ''}> 
-                    <a href='javascript:;'>
+                    <a className='item-header-text' href='javascript:;'>
                         {this.props.label}
                     </a> 
                 </li> 

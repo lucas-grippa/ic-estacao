@@ -6,8 +6,9 @@ import { selectItem } from '../item/itemActions'
 
 class MenuItem extends Component {
     render() {
+        const selected = this.props.item.selected === this.props.target
         return (
-            <li> 
+            <li className={selected ? 'active' : ''}> 
                 <a href={this.props.path}
                     data-toggle='item'
                     onClick={() => this.props.selectItem(this.props.target)}

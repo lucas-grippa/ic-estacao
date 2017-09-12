@@ -44,3 +44,21 @@
 .icon-colorSensor_icon {
     font-size: 150%;
 }
+
+.active {    
+    width:100%; 
+}
+
+.item-header-text {
+    text-align: center;
+}
+
+.img-thumbnail {
+    border: 0 none;
+    box-shadow: none;
+}
+
+.pre-scrollable {
+    max-height: fit-content;
+    overflow-y: scroll;
+}
