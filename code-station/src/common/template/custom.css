@@ -2,7 +2,7 @@
     position: fixed;
     bottom:0px;
     padding: 0px 5px 0px 5px;
-    width:100%;
+    width:100%
 }
 
 .menu-item-content {
@@ -61,4 +61,20 @@
 .pre-scrollable {
     max-height: fit-content;
     overflow-y: scroll;
+}
+
+.tab-content {
+    height: 80vh !important; 
+    overflow-y: scroll;
+}
+.code-editor-wrapper {
+    height: 86vh !important; 
+}
+
+.content-wrapper {
+    background-color: #252526 !important; 
+}
+
+.main-sidebar { 
+    background-color: #1E1E1E !important; 
 }

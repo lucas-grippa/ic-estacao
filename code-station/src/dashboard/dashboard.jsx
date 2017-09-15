@@ -21,6 +21,8 @@ import BarrierSensor from './devices/barrierSensor'
 import UltrasonicSensor from './devices/ultrasonicSensor'
 import ColorSensor from './devices/colorSensor'
 
+import CodeEditor from './codeEditor/codeEditor'
+
 class Dashboard extends Component {
 
     componentWillMount() {
@@ -57,8 +59,11 @@ class Dashboard extends Component {
                                 <ItemContent id='ultrasonic-sensor'><UltrasonicSensor /></ItemContent>
                                 <ItemContent id='color-sensor'><ColorSensor /></ItemContent>
                             </ItensContent>
-                        </Itens> 
+                        </Itens>
+                        <CodeEditor cols='8' /> 
                     </Row> 
+                    
+                        
                 </Content> 
             </div>
         )

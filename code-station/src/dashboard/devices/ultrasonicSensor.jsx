@@ -8,7 +8,7 @@ export default props => (
             e um circuito de controle. Dessa forma podemos medir a altura das peças. 
             A estação possui um sensor deste tipo localizado na frente do reservatório 
             de peças, assim a medição pode ser feita quando uma peça é empurrada para 
-            fora do reservatório e cai na esteira<br/>
+            fora do reservatório e cai na esteira.<br/>
         </p>
         <hr/>
         <i className='fa fa-code'></i>&nbsp;<strong>Funções</strong><br/><br/>

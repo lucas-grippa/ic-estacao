@@ -7,7 +7,7 @@ export default props => (
         <p> Este sensor é capaz de idenficar cores em todo o espectro 
             visível da luz.
             A estação possui um sensor deste tipo localizado em cima da parede
-            esquerda da esteira<br/>
+            esquerda da esteira.<br/>
         </p>
         <hr/>
         <i className='fa fa-code'></i>&nbsp;<strong>Funções</strong><br/><br/>
