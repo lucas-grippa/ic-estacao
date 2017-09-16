@@ -13,7 +13,7 @@ import Footer from  '../common/template/footer'
 
 export default props => (
   <div className='wrapper'>
-    <Header />
+    <Header path='#/' target='initial-content' />
     <SideBar>
       <Menu>
         <MenuItem path='#/' label='Esteira' icon='icon-belt_icon' target='belt' />

@@ -11,6 +11,7 @@ import ItensContent from '../common/item/itensContent'
 import ItemContent from '../common/item/itemContent'
 import { selectItem } from '../common/item/itemActions'
 
+import InitialContent from './devices/initialContent'
 import ConveyorBelt from './devices/conveyorBelt'
 import ActuatorOne from './devices/actuatorOne'
 import ActuatorTwo from './devices/actuatorTwo'
@@ -36,7 +37,7 @@ class Dashboard extends Component {
                     <Row> 
                         <Itens cols='4'>
                             <ItensHeader>
-                                <ItemHeader id='initial-content' label='Station Devices' />
+                                <ItemHeader id='initial-content' label='Code Station' />
                                 <ItemHeader id='belt' label='Esteira' />
                                 <ItemHeader id='actuator-1' label='Atuador 1' />
                                 <ItemHeader id='actuator-2' label='Atuador 2' />
@@ -48,7 +49,7 @@ class Dashboard extends Component {
                                 <ItemHeader id='color-sensor' label='Sensor De Cor' />
                             </ItensHeader>
                             <ItensContent>
-                                <ItemContent id='initial-content'><h1>inicial</h1></ItemContent>
+                                <ItemContent id='initial-content'><InitialContent /></ItemContent>
                                 <ItemContent id='belt'><ConveyorBelt /></ItemContent>
                                 <ItemContent id='actuator-1'><ActuatorOne /></ItemContent>
                                 <ItemContent id='actuator-2'><ActuatorTwo /></ItemContent>

@@ -4,7 +4,7 @@ import actuator3_img from '../../common/assets/images/actuator3_img.png'
 export default props => (
     <div>
         <img src={actuator3_img} className="img-thumbnail" alt="Responsive image" /> 
-        <p>Este atuador linear de passo tem como objetivo "carimbar" as peças do processo,
+        <p>Este atuador linear de passo tem como objetivo "carimbar" as peças do processo.
            Ele pode ser utilizado em modo "digital", onde pode ser programado para avançar e 
            recuar totalmente, ou em modo "passo" onde pode ser programado para avançar e
            recuar de forma parcial, através de um numero de passos fornecido. Em ambos os modos
