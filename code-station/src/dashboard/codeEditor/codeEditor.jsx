@@ -7,7 +7,7 @@ import MonacoEditor from '../../react-monaco-editor-electron/src';
 class CodeEditor extends Component {
    
     render() {
-      const defaultCode = '// type your code... \n'
+      const defaultCode = "void TaskControleEstacao(void *pvParameters)\n{\n  (void) pvParameters; \n \n  //Escreva suas variáveis globais e funções aqui \n \n  for (;;) \n  { \n \n    //Escreva seu algoritimo aqui \n \n  }\n}"
       const options = {
         selectOnLineNumbers: true,
         roundedSelection: false,

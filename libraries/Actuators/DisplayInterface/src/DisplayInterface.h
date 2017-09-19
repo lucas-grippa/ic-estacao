@@ -17,6 +17,7 @@ class DisplayInterface
     void setLine2(String);
     String getLine1();
     String getLine2();
+    void clear();
   private:
     String _line1;
     String _line2;

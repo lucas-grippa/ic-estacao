@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Navbar from './navbar'
+import Nav from './nav'
+import NavItem from './navItem'
+
 import { selectItem } from '../item/itemActions'
 
 class Header extends Component {
@@ -21,6 +25,12 @@ class Header extends Component {
                 </a>
                 <nav className='navbar navbar-static-top'>
                     <a href className='sidebar-toggle' data-toggle='offcanvas'></a>
+                    <Navbar>
+                        <Nav>
+                            <NavItem icon='fa fa-folder-open-o' />
+                            <NavItem icon='fa fa-floppy-o' />
+                        </Nav>
+                    </Navbar>
                 </nav>
         </header>
         )

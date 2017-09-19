@@ -21,6 +21,11 @@ void DisplayInterface::setLine2(String line2){
     this->_line2 = line2;
 }
 
+void DisplayInterface::clear(){
+    this->_line1 = "";
+    this->_line2 = "";
+}
+
 String DisplayInterface::getLine1(){
     return this->_line1;
 }
