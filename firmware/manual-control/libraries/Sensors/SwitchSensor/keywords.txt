@@ -1,0 +1,6 @@
+SwitchSensor KEYWORD1
+getSwitchPin    KEYWORD2
+getSwitchState  KEYWORD2
+readSwitchState KEYWORD2
+isItHigh    KEYWORD2
+isItLow KEYWORD2

@@ -1,0 +1,16 @@
+CircularActuatorV2    KEYWORD1
+getDelayTime    KEYWORD2
+getPosition KEYWORD2
+setSpeed    KEYWORD2
+motorControl    KEYWORD2
+toPosition1 KEYWORD2
+goToPosition1  KEYWORD2
+toPosition2 KEYWORD2
+goToPosition2   KEYWORD2
+toPosition3 KEYWORD2
+goToPosition3   KEYWORD2
+isItInPostition1    KEYWORD2
+isItInPostition2    KEYWORD2
+isItInPostition3    KEYWORD2
+off KEYWORD2
+circularActuatorV2Control KEYWORD2

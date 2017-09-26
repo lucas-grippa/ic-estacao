@@ -1,4 +1,0 @@
-AutomatedStation   KEYWORD1
-barrierSensorsSetup	KEYWORD2
-barrierSensorReading	KEYWORD2
-
