@@ -1,6 +1,6 @@
 # Estação Didática Automatizada Controlada por Arduino
 
-## Video
+**Video**
 
 [![Alt text](https://img.youtube.com/vi/upOcH8F2Osk/0.jpg)](https://www.youtube.com/watch?v=upOcH8F2Osk)
 
