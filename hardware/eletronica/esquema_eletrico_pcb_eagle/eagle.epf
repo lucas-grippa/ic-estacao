@@ -1,0 +1,19 @@
+[Eagle]
+Version="08 00 00"
+Platform="Windows"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="C:/EAGLE 8.0/lbr/mega_pro_mini.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="275 10 1954 997"
+State=2
+Number=0
+
+[Desktop]
+Screen="1680 1050"
+Window="Win_1"
