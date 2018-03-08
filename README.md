@@ -1,6 +1,6 @@
 # Estação Didática Automatizada Controlada por Arduino
 
-**Video**
+[Video do projeto](https://www.youtube.com/watch?v=upOcH8F2Osk)
 
 [![Alt text](https://img.youtube.com/vi/upOcH8F2Osk/0.jpg)](https://www.youtube.com/watch?v=upOcH8F2Osk)
 
@@ -13,11 +13,15 @@ Os resultados obtidos a partir da construção do protótipo totalmente funciona
 
 ![Image of Estacao](https://github.com/lucas-grippa/ic-estacao/blob/master/documenta%C3%A7%C3%A3o/Imagens/FotosEstacao/estacao_banner_v2.png)
 
+*Foto do protótipo construido*
+
 ## Code Station
 
 A interface de usuário, chamada de Code Station, foi desenvolvida utilizando a linguagem JavaScript e o framework Electron que permite a construção de aplicações desktop nativas (MacOS, Windows e Linux) utilizando tecnologias de desenvolvimento web como JavaScript, HTML e CSS.<br/> 
 
 ![Image of CodeStation](https://github.com/lucas-grippa/ic-estacao/blob/master/documenta%C3%A7%C3%A3o/Imagens/CodeStation/code_station_print2_1080.png)
+
+*Interface do CodeStation*
 
 A funcionalidade desta interface é permitir com que o usuário desenvolva apenas um algoritmo de controle sem que haja a necessidade em se preocupar com configurações, calibragem, threads e sem que seja preciso utilizar qualquer tipo de conhecimento avançado na linguagem de programação c++, além disso a interface ainda exibe todas as informações necessárias (funções e parâmetros), para que seja feito o controle da estação, sobre cada dispositivo disponível no projeto. 
 Para gerar um código que possa ser executado na estação automatizada basta que o usuário escreva um algoritmo utilizando as funções disponíveis dos dispositivos e clique em salvar, fazendo isso o software Code Station insere no código do usuário todas as bibliotecas e configurações necessárias para que tudo seja executado de forma paralela em um RTOS (Real Time Operating System) instalado no microcontrolador da estação, gerando um arquivo final com extensão .ino, que pode ser carregado para o Arduino (microcontrolador) que controla a estação, utilizando a IDE Arduino. 
