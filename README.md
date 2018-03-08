@@ -11,6 +11,8 @@ Uma estratégia de ensino mais eficiente e moderna pode ser implementada por mei
 O objetivo deste trabalho foi projetar e construir uma estação automatizada didática de pequeno porte e baixo custo, em nível software e hardware, utilizando tecnologias de hardware e software open source como a plataforma Arduino (microcontrolador) e o freeRTOS (sistema operacional de tempo real), não tão convencionais em meio acadêmico.<br/>
 Os resultados obtidos a partir da construção do protótipo totalmente funcional e de duas camadas de software, firmware e interface gráfica, mostram que o uso dessas tecnologias possuem um grande potencial para o desenvolvimento de dispositivos didáticos de baixo custo, relacionados ao ensino de programação, automação de sistemas e software embarcado, contribuindo assim para a democratização do conhecimento em tais áreas.<br/> 
 
+![Image of Estacao](https://github.com/lucas-grippa/ic-estacao/blob/master/documenta%C3%A7%C3%A3o/Imagens/FotosEstacao/estacao_banner_v2.png)
+
 ## Code Station
 
 A interface de usuário, chamada de Code Station, foi desenvolvida utilizando a linguagem JavaScript e o framework Electron que permite a construção de aplicações desktop nativas (MacOS, Windows e Linux) utilizando tecnologias de desenvolvimento web como JavaScript, HTML e CSS.<br/> 
